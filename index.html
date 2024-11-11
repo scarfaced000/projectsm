@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Preferences Survey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- Landing Page -->
+    <div id="landingPage" class="page">
+        <h1>Personal Preferences and Trends Survey</h1>
+        <p>Welcome! This survey is part of a school project to gather insights on personal preferences.</p>
+        <button id="startButton" onclick="startSurvey()">Start</button>
+    </div>
+
+    <!-- Question 1: Name -->
+    <div id="question1" class="page" style="display: none;">
+        <div class="question-box">
+        <label for="userName">What is your name?</label>
+        <input type="text" id="userName" placeholder="Enter your name">
+        <button onclick="showNamePopup()">Submit</button>
+    </div>
+        <div class="button-container">
+            <button onclick="showPage('question2')"> > </button>
+        </div>
+    </div>
+
+    <!-- Question 2: Favorite Song -->
+    <div id="question2" class="page" style="display: none;">
+        <label for="favoriteSong">What is your favorite song?</label>
+        <input type="text" id="favoriteSong" placeholder="Enter in 'title-singer' format">
+        <button onclick="playFavoriteSong()">Submit</button>
+        <div class="button-container">
+            <button onclick="showPage('question1')"> < </button>
+            <button onclick="showPage('question3')"> > </button>
+        </div>
+    </div>
+
+    <!-- Question 3: Favorite Movie -->
+    <div id="question3" class="page" style="display: none;">
+        <label for="favoriteMovie">What is your favorite movie?</label>
+        <input type="text" id="favoriteMovie" placeholder="Enter movie title">
+        <button onclick="playMovieScene()">Submit</button>
+        <div class="button-container">
+            <button onclick="showPage('question2')"> < </button>
+            <button onclick="showPage('question4')"> > </button>
+        </div>
+    </div>
+
+    <!-- Question 4: Favorite Color -->
+    <div id="question4" class="page" style="display: none;">
+        <label for="favoriteColor">What’s your favorite color?</label>
+        <input type="text" id="favoriteColor" placeholder="Enter a color name">
+        <button onclick="changeBackground()">Submit</button>
+        <div class="button-container">
+            <button onclick="showPage('question3')"> < </button>
+            <button onclick="showPage('question5')"> > </button>
+        </div>
+    </div>
+
+    <!-- Question 5: Proposal Question -->
+    <div id="question5" class="page" style="display: none;">
+        <div class="question-box">
+        <p>Have you ever been asked to be someone’s girlfriend through a questionnaire before?</p>
+        <button onclick="showYesResponse()">Yes</button>
+        <button onclick="showNoResponse()">No</button>
+    </div>    
+        <div class="button-container">
+            <button onclick="showPage('question4')"> < </button>
+        </div>
+    </div>
+
+
+
+
+<!-- Final Proposal Page-->
+<div id="finalProposal" class="page" style="display: none;">
+    <div class="question-box"> <!-- Apply fixed white box for background stability -->
+    <p>Well, now you have... So, will you be my girlfriend?</p>
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWV0d2g1dzlxYXZwYnR5cmlzbzNjeGoxbDgwbjE0YjNtaTZjdjJqNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3nFbR6mUAXTnwTwk/giphy.webp" alt="Proposal Image">
+</div>   
+    <button id="yesButton" onclick="celebrate()">Yes</button>
+    <button id="noButton" onmouseover="noEscape()">No</button>
+</div>
+
+<!--<div id="finalProposal" class="page" style="display: none;">
+    <div class="question-box"> <!-- Apply fixed white box for background stability 
+        <p>Well, now you have... So, will you be my girlfriend?</p>
+    </div>
+    <img src="https://media1.tenor.com/m/9mTO4qlAFHQAAAAd/jojosiwa-karma.gif" alt="Proposal GIF" class="proposal-gif" />
+    <div class="button-container">
+        <button id="yesButton" onclick="showYesResponse()">Yes</button>
+        <button id="noButton" onclick="showNoResponse()">No</button>
+    </div>
+</div>-->
+
+
+
+
+<!-- Celebration Page (only displayed after proposal acceptance) -->
+<div id="celebrationPage" class="page">
+    <div>
+        <p id="thankMessage">I would like to thank you, Beyonce, first.</p>
+        <p id="finalMessage">
+            mama, a <strong>girlfriend</strong> behind you💜
+        </p>
+        <img src="https://media1.tenor.com/m/9mTO4qlAFHQAAAAd/jojosiwa-karma.gif" alt="Celebration GIF" />
+    </div>
+    <!-- Audio file for celebration -->
+    <audio id="celebrationAudio" src="https://www.dropbox.com/scl/fi/8832l0kapfer3k9d25zyz/Donald-Trump-Beyonce-iMarkkeyz-Edit.mp3?raw=1"></audio>
+</div>
+
+    <!-- Modal Pop-ups -->
+    <div id="namePopup" class="modal">
+        <p id="nameMessage"></p>
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGx5N2ZwbDB1d2U5dHZtM2t0dGgwc2JnOGd0ejh6bDhiOHQ1NzU1biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yERR8cL8pNoBUaueMV/giphy.webp" alt="You're cute jeans GIF">
+        <button onclick="closeModal('namePopup')">Close</button>
+    </div>
+
+    <div id="songPopup" class="modal">
+        <img id="albumCover" class="rotating" alt="Album cover">
+        <p id="musicTasteMessage"></p>
+        <button onclick="closeModal('songPopup')">Close</button>
+    </div>
+
+    <div id="moviePopup" class="modal">
+        <div id="videoContainer"></div>
+        <p>Can't forget about this scene, right?</p>
+        <button onclick="closeModal('moviePopup')">Close</button>
+    </div>
+
+    <div id="colorPopup" class="modal">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3duZXFnem05enNzdTJtd3dtemo0eGxuOXFoOGEyOTlxMGpoYXdsbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OUG4jsJOExF4WrBFeJ/giphy.webp" alt="Color GIF">
+        <button onclick="closeModal('colorPopup')">Close</button>
+    </div>
+
+    <div id="yesResponsePopup" class="modal">
+        <p>WHO TF IS THAT DIVA💀💀</p>
+        <img src="https://media1.tenor.com/m/B8qSRWZHeL8AAAAd/bts-jhope.gif" alt="Diva GIF">
+        <button onclick="closeModal('yesResponsePopup')">Close</button>
+    </div>
+
+</body>
+</html>

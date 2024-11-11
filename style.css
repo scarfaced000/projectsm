@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+}
+
+h1, h2, h3, .question-box, .button-container button {
+    font-family: 'Montserrat', sans-serif;
+}
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button#yesButton {
+    font-size: 24px;
+    padding: 15px 30px;
+}
+
+button#noButton {
+    font-size: 14px;
+    padding: 8px 15px;
+    position: absolute;
+}
+
+/* Make No button position flexible */
+button#noButton {
+    transition: top 0.2s, left 0.2s;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal img {
+    width: 200px;
+    height: auto;
+}
+
+#finalMessage {
+    animation: pulsate 2s infinite;
+}
+
+@keyframes pulsate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+/* Circular Album Cover */
+.rotating {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Make album cover circular */
+    animation: spin 5s linear infinite;
+}
+
+/* Spin Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Align forward and back buttons together */
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+/* Styling for pulsating final message text */
+#finalMessage {
+    animation: pulsate 2s infinite;
+}
+
+/* Bold styling for "friend" */
+#finalMessage strong {
+    font-weight: bold;
+}
+
+#finalMessage {
+    font-size: 24px;
+    color: #333;
+    animation: pulsate 2s infinite;
+}
+/* Bold styling for "friend" */
+#finalMessage strong {
+    font-weight: bold;
+}
+/* Question Box Styling */
+.question-box {
+    background-color: #ffffff; /* Fixed white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    color: #333333;
+    font-size: 20px;
+}
+/* Make sure question text size is large and readable */
+.question-box p {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Update button font size for readability */
+.button-container button {
+    font-size: 18px;
+}
